@@ -37,7 +37,7 @@ jobs:
           ./google-cloud-sdk/bin/gcloud run deploy telegram-bot-sample-service \
             --image=gcr.io/cdtest-406103/telegram-bot-sample-img \
             --platform=managed \
-            --region=asia-southeast1-a \
+            --region=asia-southeast1 \
             --allow-unauthenticated
   send-notification-successful:
     needs: deploy
