@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "telegraf": "^4.15.0",
+    "telegraf-inline-menu": "^6.3.0",
+    "telegram-keyboard": "^2.3.3"
+  }
 }

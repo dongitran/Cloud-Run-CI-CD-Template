@@ -3,7 +3,7 @@ name: Deploy to Google Cloud
 on:
   push:
     branches:
-      - main
+      - test-telegram-bot
 
 jobs:
   deploy:
@@ -24,18 +24,18 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t nodejs-sample-image .
+          docker build -t telegram-bot-sample .
 
       - name: Configure Docker and push image
         run: |
           ./google-cloud-sdk/bin/gcloud auth configure-docker
-          docker tag nodejs-sample-image gcr.io/cdtest-406103/nodejs-sample-image
-          docker push gcr.io/cdtest-406103/nodejs-sample-image
+          docker tag telegram-bot-sample gcr.io/cdtest-406103/telegram-bot-sample
+          docker push gcr.io/cdtest-406103/telegram-bot-sample
 
       - name: Deploy to Google Cloud Run
         run: |
           ./google-cloud-sdk/bin/gcloud run deploy nodejs-sample-service \
-            --image=gcr.io/cdtest-406103/nodejs-sample-image \
+            --image=gcr.io/cdtest-406103/telegram-bot-sample \
             --platform=managed \
             --region=us-central1 \
             --allow-unauthenticated
